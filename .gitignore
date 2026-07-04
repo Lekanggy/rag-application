@@ -2,3 +2,4 @@
 .env
 *.db*
 models/*
+models\Xenova\all-MiniLM-L6-v2
