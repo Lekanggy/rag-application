@@ -19,6 +19,26 @@ def get_documents(filer="llm-zoomcamp"):
     documents_llm = [doc for doc in documents if doc["course"] == filer]
     return documents_llm
 
+#Hit
+def hit_rate(example):
+    cnt = 0
+    for line in example:
+        if 1 in line:
+            cnt += 1
+    return cnt/len(example)
+
+#Mean Rank
+def mrr(relevance):
+    total_score = 0.0
+
+    for line in relevance:
+        for rank in range(len(line)):
+            if line[rank] == 1:
+                total_score = total_score + 1 / (rank + 1)
+                break
+
+    return total_score / len(relevance)
+
 
 
 class Questions(BaseModel):
